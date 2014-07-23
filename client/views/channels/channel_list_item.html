@@ -1,0 +1,67 @@
+<template name="channelListItem">
+  <li>
+    <div class="pretty-item">
+      <a href="{{pathFor 'channelShow'}}" class='pretty-item__inner {{#unless description}}no-description{{/unless}}'>
+        <div class='pretty-item__icon'>
+          {{#if locked}}
+            <div class="rounded-image" style="background-color: #c0392b;">
+              <div><i class='fa fa-lock'></i></div>
+            </div>
+          {{else}}
+            {{#if image}}
+              <div class="rounded-image">
+                <div class='cover-image' style="background-image: url('{{imageUrl image 'c_fill,h_100,w_100'}}');"></div>
+              </div>
+            {{else}}
+              {{#if userCount}}
+                {{> userRoundedImage roundedImageData}}
+              {{else}}
+                <div class="rounded-image" style="background-color: #DDD;">
+                  <div>?</div>
+                </div>
+              {{/if}}
+            {{/if}}
+          {{/if}}
+        </div>
+
+        <div class='pretty-item__name'>
+          {{name}}
+        </div>
+
+        <div class='pretty-item__description'>{{description}}</div>
+
+        <div class='pretty-item__meta'>
+          {{pluralize 'Member' userCount 'Members'}}
+
+          {{#if lastAuthor}}
+            &middot;
+            {{lastAuthor}}
+          {{/if}}
+
+          {{#if receivesPushNotifications}}
+            &middot;
+            <i class='fa fa-bell'></i>
+          {{/if}}
+        </div>
+      </a>
+
+      <ul class='pretty-item__actions'>
+        {{#unless isLocalSystemChannel}}
+          <li class='button button--negative delete'>Leave</li>
+        {{/unless}}
+        <li class='button {{#if receivesPushNotifications}}button--neutral{{/if}} toggle-push'>
+          {{#if receivesPushNotifications}}
+            <i class='fa fa-bell'></i>
+            On
+          {{else}}
+            <i class='fa fa-bell-o'></i>
+            Off
+          {{/if}}
+        </li>
+        <li class='button cancel'>Cancel</li>
+      </ul>
+
+      <div class='pretty-item__bg' style='{{backgroundStyle}}'></div>
+    </div>
+  </li>
+</template>

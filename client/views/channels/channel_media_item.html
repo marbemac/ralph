@@ -1,0 +1,32 @@
+<template name='channelMediaItem'>
+   <li class='channel-media-item'>
+
+    <div class="channel-media__image">
+      {{#if mediaUrl}}
+        <div class='cover-image' style="background-image: url('{{imageUrl mediaUrl 'c_limit,h_200,w_200'}}');"></div>
+      {{else}}
+        <span>
+          <i class='fa fa-link'></i>
+        </span>
+      {{/if}}
+    </div>
+
+    {{#if url}}
+      <a class='channel-media__name' href='{{url}}' target='_blank'>
+        {{title}}
+
+        {{#if provider}}
+          <span>{{provider}}</span>
+        {{/if}}
+      </a>
+    {{else}}
+      <div class='channel-media__name channel-media--self'>
+        {{title}}
+      </div>
+    {{/if}}
+
+    <div class='channel-member__when'>
+      member since
+    </div>
+  </li>
+</template>

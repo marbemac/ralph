@@ -1,0 +1,92 @@
+<template name='channelShow'>
+
+  <div class='page-header page-header--with-submenu view-header'>
+    <a class='page-header__left' href="{{pathFor 'globalChannels'}}">
+      <i class='fa fa-chevron-left'></i>
+    </a>
+    <div class='page-header__center clickable'>
+      {{#if channel}}
+        {{channel.name}} <i class='fa fa-info'></i>
+      {{else}}
+        ...
+      {{/if}}
+    </div>
+
+    <div class='page-header__info'>
+      {{#if channel.image}}
+        <div class="rounded-image">
+          <div class='cover-image' style="background-image: url('{{imageUrl channel.image 'c_fill,h_100,w_100'}}');"></div>
+        </div>
+      {{else}}
+        <div class="rounded-image" style="background-color: #DDD;">
+          <div>?</div>
+        </div>
+      {{/if}}
+
+      <div class='description'>
+        {{#if channel.description}}
+          {{channel.description}}
+        {{else}}
+          No description.
+        {{/if}}
+      </div>
+
+    </div>
+
+    {{#if isMobile}}
+      {{#if channel}}
+        <div class='page-header__right share'>
+          <i class='fa fa-share'></i>
+        </div>
+      {{/if}}
+    {{/if}}
+
+    <ul class='page-submenu'>
+      <li data-target='.carousel--messages' class='on'>Messages</li>
+      <li data-target='.carousel--media' class='hidden'>Media</li>
+      <li data-target='.carousel--members'>{{pluralize "Member" channel.userCount "Members"}}</li>
+
+      {{#if isAdmin}}
+        <li data-target='.carousel--admin'>Admin</li>
+      {{/if}}
+    </ul>
+  </div>
+
+  <div class='view__carousel'>
+    <div class='view__carausel__item carousel--messages on'>
+      <div class='view__inner with-margin with-submenu'>
+        {{> messageList channel}}
+      </div>
+
+      {{#if channel}}
+        {{#if isMember}}
+          {{> messageForm channel}}
+        {{else}}
+          <div class='bottom-bar'>
+            <div class='channel-join'>Join Channel</div>
+          </div>
+        {{/if}}
+      {{/if}}
+    </div>
+
+    <div class='view__carausel__item carousel--media'>
+      <div class='view__inner with-margin with-submenu'>
+        {{> channelMedia channel}}
+      </div>
+    </div>
+
+    <div class='view__carausel__item carousel--members'>
+      <div class='view__inner with-margin with-submenu'>
+        {{> channelMembers channel}}
+      </div>
+    </div>
+
+    {{#if isAdmin}}
+      <div class='view__carausel__item channel-admin carousel--admin'>
+        {{#if channel}}
+          {{> channelForm channel}}
+        {{/if}}
+      </div>
+    {{/if}}
+  </div>
+</template>

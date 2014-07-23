@@ -1,0 +1,54 @@
+<template name='globalChannels'>
+
+  <div class='page-header page-header--with-submenu view-header'>
+    {{> leftMenuToggle}}
+
+    <div class='page-header__center'>Channels</div>
+
+    {{#if currentUser}}
+      <a class='page-header__right create-channel' href="{{pathFor 'channelCreate'}}">
+        <i class='fa fa-plus-square'></i>
+      </a>
+    {{/if}}
+
+    <ul class='page-submenu'>
+      <li data-target='.carousel--explore-channels' class='on'>Explore</li>
+
+      {{#if currentUser}}
+        <li data-target='.carousel--my-channels'>Member Of</li>
+      {{/if}}
+    </ul>
+  </div>
+
+  <div class='view__carousel'>
+    <div class='view__carausel__item carousel--explore-channels on'>
+      <div class='view__inner channels-list with-margin with-submenu'>
+        <input type='text' placeholder='search' class='channel-search' />
+        <ul class='nested-list'>
+          {{#each popularChannels}}
+            {{> channelListItem}}
+          {{else}}
+            <li class='center-muted-notice'>Hmm.. there are no channels to show here.</li>
+          {{/each}}
+        </ul>
+
+      </div>
+    </div>
+
+    {{#if currentUser}}
+      <div class='view__carausel__item carousel--my-channels'>
+        <div class='view__inner channels-list with-margin with-submenu'>
+
+          <ul class='nested-list '>
+            {{#each openChannels}}
+              {{> channelListItem}}
+            {{else}}
+              <li class='center-muted-notice'>You haven't joined any channels yet.</li>
+            {{/each}}
+          </ul>
+
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</template>

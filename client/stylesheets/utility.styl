@@ -1,0 +1,116 @@
+@import 'a_variables.styl'
+
+.accelerated
+  -webkit-transform: translateZ 0
+  -moz-transform: translateZ 0
+  -ms-transform: translateZ 0
+  -o-transform: translateZ 0
+  transform: translateZ 0
+
+  -moz-transition: all 1s
+  -webkit-transition: all 1s
+  -o-transition: all 1s
+  transition: all 1s
+
+
+.content-panel
+  position relative
+  background #FFF
+  box-shadow 0px 0px 2px #999
+  margin 15px 10px 55px 10px
+
+
+.capitalize
+  text-transform uppercase
+
+
+.bold
+  font-weight bold !important
+
+
+.hidden
+  display none !important
+
+
+.fixed
+  position fixed
+  top 0
+  z-index 5
+.absolute
+  position absolute
+  bottom 0
+
+
+
+.cover-image
+  background-position 50% center
+  background-repeat no-repeat
+  background-size cover
+  display block
+  height 100%
+  width 100%
+
+
+.contain-image
+  background-position center center
+  background-repeat no-repeat
+  background-size contain
+  display block
+  height 100%
+  width 100%
+
+
+.center-muted-notice
+  font-size 2rem
+  font-weight bold
+  color #666
+  text-transform uppercase
+  text-align center
+  padding 3rem 2rem 2.7rem 2rem
+  cursor default
+  background #FFF
+  border-bottom 1px solid #E3E3E3
+  i
+    display block
+  .meta
+    font-size 1.2rem
+    font-weight normal
+    text-transform none
+    margin-top 2rem
+
+
+.pulse-ring
+  border: 1px solid #FFF
+  border-radius: 50%
+  height: 1.8rem
+  width: 1.8rem
+  -webkit-transform translate3d(0, 0, 0)
+  transform translate3d(0, 0, 0)
+  -webkit-animation: pulsate 6s ease-out
+  -webkit-animation-iteration-count: infinite
+  animation: pulsate 6s ease-out
+  animation-iteration-count: infinite
+  opacity: 0.0
+
+
+.button
+  text-transform uppercase
+  color #FFF
+  background #CCC
+  padding 0.4rem 0.8rem
+  border-radius 0.3rem
+  &.disabled
+    cursor default
+    opacity 0.5
+.button--negative
+  background-color red-color
+.button--neutral
+  background-color blue-color
+.button--action
+  background-color orange
+
+
+.pattern-bg
+  background-repeat repeat
+  background-position center center
+  background-size 840px 560px

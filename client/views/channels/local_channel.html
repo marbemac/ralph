@@ -1,0 +1,46 @@
+<template name='localChannel'>
+  <div class='page-header view-header'>
+    {{> leftMenuToggle}}
+    <div class='page-header__center'>
+      {{#if channel}}
+        <div class='page-header__center-top'>{{channel.name}}</div>
+        <div class='page-header__center-bottom'>Local Channel</div>
+      {{else}}
+        <div class='page-header__center-top'>...</div>
+        <div class='page-header__center-bottom'>Local Channel</div>
+      {{/if}}
+    </div>
+
+    {{#if channel}}
+      <div class='page-header__right show-map'>
+        <i class='fa fa-location-arrow'></i>
+      </div>
+    {{/if}}
+  </div>
+
+  <div class='view__inner with-margin'>
+    {{#if session 'locationError'}}
+      <ul class='nested-list nested-list-padding-top'>
+        <li class='nested-list__info'>
+          {{session 'locationError'}}
+        </li>
+      </ul>
+    {{else}}
+      {{#if session 'location'}}
+        {{#if channel.locked}}
+          {{> channelLocked channel}}
+        {{else}}
+          {{> messageList channel}}
+        {{/if}}
+      {{else}}
+        {{> gatheringLocation}}
+      {{/if}}
+    {{/if}}
+  </div>
+
+  {{#if channel}}
+    {{#unless channel.locked}}
+      {{> messageForm channel}}
+    {{/unless}}
+  {{/if}}
+</template>

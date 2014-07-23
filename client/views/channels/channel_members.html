@@ -1,0 +1,17 @@
+<template name='channelMembers'>
+  <div class='channel-members-container'>
+    <div class='channel-members-search'>
+      <input type='text' placeholder='Search Members' />
+    </div>
+
+    <ul class='channel-members'>
+      {{#each members}}
+        {{> channelMember}}
+      {{else}}
+        <li class='list-item--none'>Hmm.. there's nobody here.</li>
+      {{/each}}
+    </ul>
+
+    <div class='channel-members-end-knob'></div>
+  </div>
+</template>

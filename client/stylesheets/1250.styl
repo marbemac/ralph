@@ -1,0 +1,30 @@
+@import "a_variables.styl";
+@import "utility.styl";
+
+left-menu-width = 18%
+right-pane-width = 30%
+
+@media screen and (min-width: 1250px)
+
+
+  html
+    font-size 70%
+
+  #left-menu
+    left 20rem !important
+    width left-menu-width !important
+
+  #container__inner
+    left left-menu-width
+
+    .view--one
+      width right-pane-width !important
+
+  .page-views
+    right right-pane-width !important
+
+  #pages
+    left left-menu-width
+
+  #pages__inner
+    width 82%

@@ -1,0 +1,20 @@
+<template name="messageList">
+  <ul class="messages-list">
+    {{#each posts}}
+      {{> messageGroup}}
+    {{else}}
+      <li class='center-muted-notice'>
+        No messages yet :(
+
+        {{#if isGlobal}}
+          <div class='meta'>
+            <b>https://ralphchat.com{{pathFor 'channelShow'}}</b>
+            <br />
+            <br />
+            This channel can be reached at the URL above. Spread the word!
+          </div>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+</template>

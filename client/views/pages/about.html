@@ -1,0 +1,113 @@
+<template name='about'>
+
+  <div class='view__inner'>
+
+    {{> leftMenuToggle}}
+
+    <div class='panes panes--about'>
+      <ul>
+        <li>
+          <div class='page-header view-header'>
+            <div class='page-header__center'>Hi, I'm Ralph</div>
+          </div>
+          <div class='pane__inner'>
+            <div class='about'>
+              <div class='about__image about__image--smaller'>
+                <img src='/images/logo-mark-medium.png' />
+                <div class='about__image-bg'></div>
+              </div>
+              <div class='about__description'>
+                <b>Welcome</b> to the super-heroic messaging app, Ralph. It's simple, quick, and anonymous.
+                <br /><br />
+                Swipe left to continue.
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class='page-header view-header'>
+            <div class='page-header__center'>Channels</div>
+          </div>
+          <div class='pane__inner'>
+            <div class='about'>
+              <div class='about__image about__image--square'>
+                <img src='/images/about-topics.jpg' />
+                <div class='about__image-bg'></div>
+              </div>
+              <div class='about__description'>
+                <b>Channels</b> are themed communities, usually defined by a topic.
+                <br /><br />
+                You can create and moderate your own channel.
+                Just pick a topic you're interested in, create one, and start inviting people!
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class='page-header view-header'>
+            <div class='page-header__center'>Local Channels</div>
+          </div>
+          <div class='pane__inner'>
+            <div class='about'>
+              <div class='about__image about__image--square'>
+                <img src='/images/about-local.jpg' />
+                <div class='about__image-bg'></div>
+              </div>
+              <div class='about__description'>
+                <b>Local Channels</b> are channels with physical boundaries. Only people within these boundaries can join.
+                <br /><br />
+                Local channels are automatically created by Ralph, and you automatically join the appropriate one based on your location.
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class='page-header view-header'>
+            <div class='page-header__center'>Tips</div>
+          </div>
+          <div class='pane__inner'>
+            <div class='about'>
+              <div class='about__description'>
+                Tap and hold a channel to leave it, or to toggle notifications on/off.
+                <br /><br />
+                Tap a message to flag it.
+                <br /><br />
+                Questions? Join the Ralph Feedback channel or email support@ralphchat.com.
+              </div>
+              <a class="about__bottom-link" href="{{pathFor 'globalChannels'}}">
+                Start Chatting
+                <i class='fa fa-angle-double-right'></i>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class='bottom-bar bottom-menu'>
+        <div class='pane-names pane-names--about'>
+          <ul>
+            <li class='pane-names__bg'></li>
+            <li class='pane-names__item'>
+              Welcome
+            </li>
+
+            <li class='pane-names__item'>
+              Channels
+            </li>
+
+            <li class='pane-names__item'>
+              Local
+            </li>
+
+            <li class='pane-names__item'>
+              Tips
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,127 @@
+@import "a_variables.styl";
+@import "utility.styl";
+
+left-menu-width = 20%
+right-pane-width = 45%
+
+@media screen and (min-width: 900px)
+
+
+  html
+    font-size 70%
+
+  .left-menu-toggle
+  #hide-left-menu
+  .sidebar-invite-friends
+  .list-item__go
+  .page-header__left
+    display none !important
+
+  #left-menu
+    position absolute !important
+    left 0 !important
+    right auto !important
+    width left-menu-width !important
+    top 0 !important
+    bottom 0 !important
+    z-index 10 !important
+    height auto
+    transform(translate3d 0px, 0px, 0px)
+    .view-header
+      box-shadow none
+      background rgba(0,0,0,0.7)
+      color #FFF
+      font-weight bold
+    .view__inner
+    .bottom-bar
+      box-shadow none
+    .bottom-bar
+      background transparent
+    .bottom-list__button
+      background #FFF
+      color #333
+    .bottom-list__icon
+      color #FFF
+
+  #container__inner
+    position absolute
+    left left-menu-width
+    top 0
+    right 0
+    bottom 0
+    width auto
+    z-index 20 !important
+    overflow visible
+
+    .view
+      width auto
+    .view--one
+      position absolute
+      top 0 !important
+      right 0 !important
+      bottom 0 !important
+      width right-pane-width !important
+      left auto
+      height auto !important
+      opacity 1 !important
+      z-index 10 !important
+      background rgba(0,0,0,0.7)
+      padding-left 1.5rem
+      padding-right 1.5rem
+
+      .view-header
+        background transparent
+        color #FFF
+        text-align left
+        position relative
+        box-shadow none
+      .page-submenu
+        border-radius 0.6rem 0.6rem 0 0
+      .bottom-bar
+        overflow hidden
+        box-shadow none
+      .view__inner
+        background transparent
+        left 1.5rem
+        right 1.5rem
+        bottom 1.5rem
+      .nested-list
+        margin 0
+        border-radius 0 0 0.6rem 0.6rem
+      .page-header__right
+        color #FFF
+
+
+  .page-views
+    position absolute
+    left 0 !important
+    right right-pane-width !important
+    bottom 0 !important
+    top 0 !important
+    width auto
+    z-index 20 !important
+    box-shadow 0 0 4px rgba(0,0,0,0.8)
+
+
+  #pages
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left left-menu-width
+    z-index 20
+    overflow visible
+
+
+  #pages__inner
+    width 80rem
+    transform(translate3d 0, 0px, 0px !important)
+
+
+  .message__inner
+    padding-left 1.5rem
+    padding-right 1.5rem
+
+
+  .bottom-form__submit
+    z-index 10

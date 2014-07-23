@@ -1,0 +1,14 @@
+{
+  "public": {
+    "SEGMENTIO_READ_KEY": "",
+    "IMAGE_ROOT_URL": ""
+  },
+  "UA_APP_KEY": "",
+  "UA_APP_SECRET": "",
+  "UA_APP_MASTER_SECRET": "",
+  "METEOR_KADIRA_APP_ID": "",
+  "METEOR_KADIRA_APP_SECRET": "",
+  "CLOUDINARY_API_KEY": "",
+  "CLOUDINARY_API_SECRET": "",
+  "CLOUDINARY_CLOUD_NAME": ""
+}

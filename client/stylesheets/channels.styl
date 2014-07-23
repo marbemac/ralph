@@ -1,0 +1,294 @@
+@import "a_variables";
+@import "utility";
+
+.channel-locked
+  padding-top 10%
+  z-index 500
+  text-align center
+  color #FFF
+.channel-locked__name
+  font-size 2.4rem
+  line-height 3.4rem
+  font-weight bold
+  text-transform uppercase
+  margin 0 2rem 0
+.channel-locked__icon
+  font-size 3.6rem
+  margin auto
+  background #c0392b
+  position relative
+  width 7rem
+  height 7rem
+  border-radius 50%
+  margin-bottom 2rem
+  .image-stack__icon-border
+    border-radius 50%
+  .pulse-ring
+    height 6rem
+    width 6rem
+    left 50%
+    margin -3rem 0 0 -3rem
+    position absolute
+    top 50%
+.channel-locked__help
+  text-transform uppercase
+  font-size 1.3rem
+  text-align center
+  margin 0 auto 2rem auto
+  max-width 28rem
+.channel-locked__users
+  max-width 30rem
+  margin auto
+  padding 8% 0
+  li
+    display inline-block
+    width 32%
+    text-align center
+.channel-locked__users__number
+  background rgba(255,255,255,0.8)
+  color #333
+  width 3rem
+  height 3rem
+  line-height 3rem
+  border-radius 50%
+  margin 0 auto 0.8rem auto
+  font-weight bold
+  &.on
+    background #1BBBD3
+    color #FFF
+.channel-locked__invite
+  margin 0 auto
+  background #E7842D
+  font-size 2rem
+  display inline-block
+  padding 0.8rem 1.5rem
+  color #FFF
+  font-weight bold
+
+
+.channel-create
+  display block
+  padding 1rem 1.5rem
+  border-bottom 1px solid #DDD
+.channel-create__map-placeholder
+  position absolute
+  top 0
+  left 0
+  right 0
+  bottom 0
+.channel-create__reset
+  background none repeat scroll 0 0 #FF0000
+  bottom 6rem
+  font-size 2rem
+  left 50%
+  margin-left -4.5rem
+  padding 0.5rem 1rem
+  position fixed
+  z-index 1000
+  color #FFF
+  border-radius 4px
+  text-transform uppercase
+  cursor pointer
+
+
+.channel-join
+  font-weight bold
+  color orange
+  text-align center
+  cursor pointer
+  padding 1.3rem 0 0 0
+
+
+.channel-form
+  .nested-list__header
+    padding-left 1rem
+.channel-form__theme
+  overflow hidden
+.channel-form__theme-option
+  background-color #FFF
+  width 33.33333333%
+  display inline-block
+  margin-right -4px
+  position relative
+  padding 0 0 2rem 0
+  height 7rem
+.channel-form__theme-option--image
+  @extend .contain-image
+.channel-form__theme-option--bgimage
+  @extend .cover-image
+.channel-form__theme-option__label
+  font-size 0.9rem
+  position absolute
+  bottom 0
+  left 0
+  right 0
+  padding 0.2rem 0
+  background rgba(0,0,0,0.4)
+  color #FFF
+  text-align center
+.channel-form__theme-option--middle
+  border-left 1px solid #EEE
+  border-right 1px solid #EEE
+  .channel-form__theme-option__label
+    left -1px
+    right -1px
+.channel-form__bg-theme
+  text-align center
+  position relative
+  display none
+
+  transform scale3d(0,0,1)
+  -webkit-transform scale3d(0,0,1)
+
+  -webkit-transition all .3
+  transition all .3s
+
+  >div
+    background #FFF
+    display inline-block
+    margin-right -4px
+    font-size 0.8rem
+    padding 0.6rem 1.2rem
+    cursor pointer
+    &.on
+      background blue-color
+      color #FFF
+      cursor default
+  .fa
+    position absolute
+    top -0.7rem
+    left 50%
+    font-size 1.2rem
+    margin-left -0.2rem
+    color #FFF
+
+  &.visible
+    transform scale3d(1,1,1)
+    -webkit-transform scale3d(1,1,1)
+    display block
+
+
+.channel-members-container
+  min-height 100%
+  width 100%
+  background #FFF
+  padding 0
+  overflow hidden
+.channel-members-search
+  padding 2rem 1.5rem 0 1.5rem
+  background #FFF
+  width 100%
+  input
+    width 100%
+    padding 0.4rem 0.8rem
+    border 1px solid #F3F3F3
+    font-size 1.6rem
+    max-width 40rem
+    &:focus
+      border-color #CCC
+.channel-member
+  border-left 1px solid #F3F3F3
+  margin-left 8rem
+  position relative
+  .user-image
+    left -6.5rem
+    margin-top -2.2rem
+    position absolute
+    top 50%
+    z-index 1
+.channel-member__name
+  border-bottom 1px solid #F3F3F3
+  font-size 1.8rem
+  font-weight bold
+  left -1.5rem
+  padding 1.2rem 0 0.3rem 2.5rem
+  position relative
+  color #333
+  span
+    color muted-color
+    font-size 1.2rem
+    position relative
+    top -0.2rem
+    margin-left 0.5rem
+.channel-member__when
+  font-size 1.2rem
+  padding 0.3rem 0 1.2rem 1rem
+  color muted-color
+.channel-members-end-knob
+  background none repeat scroll 0 0 #F9F9F9
+  border 1px solid #EEEEEE
+  border-radius 50%
+  height 1.5rem
+  margin-bottom 3rem
+  margin-left 7.25rem
+  width 1.5rem
+
+
+
+.channel-admin
+  .view__inner
+    margin-top page-header-height + submenu-height
+
+
+.channel-search
+  width 100%
+  border none
+  padding 0.5rem 1.5rem
+
+
+.channel-media-container
+  min-height 100%
+  width 100%
+  background #FFF
+  padding 0
+  overflow hidden
+.channel-media-item
+  border-left 1px solid #F3F3F3
+  margin-left 8rem
+  position relative
+.channel-media__image
+  border-radius 50%
+  color #FFFFFF
+  cursor default
+  font-size 1.6rem
+  font-weight bold
+  height 5rem
+  text-align center
+  width 5rem
+  overflow hidden
+
+  left -6.5rem
+  position absolute
+  bottom 0.7rem
+  z-index 1
+  span
+    display block
+    padding-top 1.4rem
+.channel-media__name
+  border-bottom 1px solid #F3F3F3
+  font-size 1.8rem
+  font-weight bold
+  left -1.5rem
+  padding 1.2rem 0 0.3rem 2.5rem
+  position relative
+  color #333
+  display block
+  span
+    color muted-color
+    font-size 1.2rem
+    position relative
+    top -0.2rem
+    margin-left 0.5rem
+    font-weight normal
+.channel-media__when
+  font-size 1.2rem
+  padding 0.3rem 0 1.2rem 1rem
+  color muted-color
+.channel-media-end-knob
+  background none repeat scroll 0 0 #F9F9F9
+  border 1px solid #EEEEEE
+  border-radius 50%
+  height 1.5rem
+  margin-bottom 3rem
+  margin-left 7.25rem
+  width 1.5rem

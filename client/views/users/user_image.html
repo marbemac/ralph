@@ -1,0 +1,9 @@
+<template name='userImage'>
+    <div class="user-image" style="background-color: {{cc}};">
+      {{#if pi}}
+        <img src='{{imageUrl pi}}' />
+      {{else}}
+        <span>{{activeLetters username}}</span>
+      {{/if}}
+    </div>
+</template>

@@ -1,0 +1,14 @@
+<template name='channelMember'>
+  <li class='channel-member'>
+    {{> userImage}}
+    <div class='channel-member__name'>
+      {{username}}
+      {{#if isAdmin}}
+        <span><i class='fa fa-star'></i> Creator</span>
+      {{/if}}
+    </div>
+    <div class='channel-member__when'>
+      member since {{prettyTimestamp createdAt}}
+    </div>
+  </li>
+</template>

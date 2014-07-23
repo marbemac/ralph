@@ -1,0 +1,44 @@
+<template name="message">
+
+  <div class='message-container'>
+    <div class='message {{#if hasImage}}message--with-image{{/if}}'>
+      <div class='message__username' style='color: {{cc}};'>
+        {{username}}
+
+        {{#if admin}}
+          <i class='fa fa-star'></i>
+        {{/if}}
+      </div>
+
+      <div class='message__inner {{meClass}} {{systemClass}}'>
+        <div class='message__bg'></div>
+
+        <p class='message__content'>{{{contentWithEntities}}}</p>
+
+        <div class='message__when'></div>
+
+        {{#if hasImage}}
+          <i class='fa fa-expand message__img-expand'></i>
+        {{/if}}
+      </div>
+    </div>
+
+    <ul class='message__actions'>
+      {{#if isMine}}
+
+      {{else}}
+        {{#if flaggedByMe}}
+          <li class='message__action message__flagged'>
+            Flagged <i class='fa fa-flag'></i>
+          </li>
+        {{else}}
+          <li class='message__action message__flag'>
+            Flag <i class='fa fa-flag-o'></i>
+          </li>
+        {{/if}}
+      {{/if}}
+    </ul>
+
+  </div>
+
+</template>

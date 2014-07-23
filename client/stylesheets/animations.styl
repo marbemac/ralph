@@ -1,0 +1,30 @@
+@-moz-keyframes pulsate {
+  0% {transform: scale(0.1, 0.1); opacity: 0.0;}
+  20% {opacity: 1.0;}
+  40% {transform: scale(1.2, 1.2); opacity: 0.0;}
+  100% {opacity:0;}
+}
+@-webkit-keyframes pulsate {
+  0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+  20% {opacity: 1.0;}
+  40% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+  100% {opacity:0;}
+}
+
+
+
+@keyframes slide-in-right {
+  0%   {
+    opacity 0
+    -webkit-transform translate3d(100%, 0, 0)
+    transform translate3d(100%, 0, 0)
+  }
+  100% {
+    opacity 1
+    -webkit-transform translate3d(0, 0, 0)
+    transform translate3d(0, 0, 0)
+  }
+}
+.animate--slide-in-right
+  -webkit-animation slide-in-right 500ms cubic-bezier(0.19, 1, 0.22, 1)
+  animation slide-in-right 500ms cubic-bezier(0.19, 1, 0.22, 1)

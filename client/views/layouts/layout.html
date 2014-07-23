@@ -1,0 +1,48 @@
+<template name='layout'>
+
+  <div id='container'>
+    {{> yield 'page-cover'}}
+
+    {{> leftMenu}}
+
+    <div id='container__inner'>
+
+      <div id='views'>
+        <div class='view view--one view--dark'>
+          {{> globalChannels}}
+        </div>
+
+        <div class='page-views' style="{{pageStyle}}">
+          <div class='view view--two view--light'>
+            {{> channelShow}}
+          </div>
+
+          <div class='view view--three view--light'>
+            {{> localChannel}}
+            {{> map}}
+          </div>
+
+          <div class='view view--four view--light'>
+            {{> yield 'view-four'}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id='map-canvas'></div>
+
+  {{#if isAdmin}}
+    <div class='server-facts'>
+      <i class='server-facts__handle fa fa-tachometer'></i>
+      {{> serverFacts}}
+    </div>
+  {{/if}}
+
+  <div class='popup-notifications'>
+    {{#each session 'notifications'}}
+      {{> popupNotification}}
+    {{/each}}
+  </div>
+
+</template>

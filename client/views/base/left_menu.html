@@ -1,0 +1,79 @@
+<template name='leftMenu'>
+  <div id='left-menu' class='view view--dark'>
+    <div class='left-menu__header view-header'>
+      <div class='left-menu__header-name'>
+        {{#if currentUser}}
+          {{currentUser.username}}
+        {{else}}
+          Stranger
+        {{/if}}
+      </div>
+      <div id='hide-left-menu' class='page-header__right'>
+        <i class='fa fa-chevron-right'></i>
+      </div>
+    </div>
+
+    <div class="left-menu__inner">
+
+      <div class='view__inner'>
+        {{#unless currentUser}}
+          {{> loginForm}}
+        {{/unless}}
+
+        <ul class='left-menu__items'>
+          <li>
+            <a href='{{pathFor "globalChannels"}}' class='{{userMenuIsOnClass "globalChannels"}}'>Channels</a>
+          </li>
+          {{#if currentUser}}
+            <li>
+              <a href='{{pathFor "localChannel"}}' class='{{userMenuIsOnClass "localChannel"}}'>Local Channel</a>
+            </li>
+          {{/if}}
+          <li>
+            <a href='{{pathFor "about"}}' class='{{userMenuIsOnClass "about"}}'>About</a>
+          </li>
+          <li>
+            <div class='sidebar-invite-friends'>Invite Friends</div>
+          </li>
+          {{#if isAdmin}}
+            <!-- <li>
+              <a href="{{pathFor 'localChannelCreate'}}" class='{{userMenuIsOnClass "localChannelCreate"}}'>Create Channel</a>
+            </li> -->
+            <li>
+              <a href="{{pathFor 'channelRemove'}}" class='{{userMenuIsOnClass "channelRemove"}}'>Remove Channel</a>
+            </li>
+          {{/if}}
+
+          {{#if currentUser}}
+            <li class='logout'>
+              <a>Logout</a>
+            </li>
+          {{/if}}
+        </ul>
+
+        <div class='bottom-bar'>
+          <ul class='bottom-list'>
+            <li>
+              <a href='https://facebook.com/GetChanza' class='bottom-list__icon'>
+                <i class='fa fa-facebook-square'></i>
+              </a>
+            </li>
+            <li>
+              <a href='https://twitter.com/RalphApp' class='bottom-list__icon'>
+                <i class='fa fa-twitter-square'></i>
+              </a>
+            </li>
+            {{#if isWeb}}
+              <li>
+                <a href='https://itunes.apple.com/us/app/ralph-chat/id782873767' class='bottom-list__button'>
+                  <i class='fa fa-apple'></i> App Store
+                </a>
+              </li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

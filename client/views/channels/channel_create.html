@@ -1,0 +1,12 @@
+<template name='channelCreate'>
+  <div class='page-header view-header'>
+    <a class='page-header__left' href="{{pathFor 'globalChannels'}}">
+      <i class='fa fa-chevron-left'></i>
+    </a>
+    <div class='page-header__center'>
+      Create Channel
+    </div>
+  </div>
+
+  {{> channelForm pendingChannel}}
+</template>

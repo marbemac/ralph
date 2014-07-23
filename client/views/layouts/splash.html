@@ -1,0 +1,24 @@
+<template name='splash'>
+  <div id='splash'>
+    <div id='splash__inner'>
+      <div class='splash-top'>
+        <img src='/images/logo-mark-medium.png' class='splash-mark' />
+        <div class='splash-headline'><div>Meet Ralph</div> The super simple local chat app.</div>
+      </div>
+      <div class='splash-middle'>
+
+        <a href='https://itunes.apple.com/us/app/ralph-chat/id782873767'>
+          <img src='/images/download-app-store.png'  class='splash-download' />
+        </a>
+        <img src='/images/download-google-play.png' class='splash-download splash-download--google' />
+
+        <br />
+
+        <a href='https://twitter.com/RalphApp' class='social-media-link'><i class='fa fa-twitter-square'></i> @RalphApp</a>
+        <a href='https://facebook.com/RalphApp' class='social-media-link'><i class='fa fa-facebook-square'></i> Ralph</a>
+      </div>
+
+      {{> loginForm}}
+    </div>
+  </div>
+</template>

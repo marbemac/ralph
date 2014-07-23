@@ -1,0 +1,46 @@
+<template name='localChannelCreate'>
+  <ul class='two-panes'>
+    <li>
+      <div class='pane__inner'>
+        <div class='channel-create-map'>
+          <div class='channel-create__map-placeholder'></div>
+        </div>
+        <div class='channel-create__reset'>Reset</div>
+
+        <form class="channel-map-form bottom-form bottom-bar">
+          <input class='bottom-form__input' name="content" placeholder="lookup address.." rows="1" />
+          <div class='bottom-form__submit'><span>search</span></div>
+        </form>
+      </div>
+    </li>
+
+    <li>
+      <div class='pane__inner'>
+        <form class='channel-form center-form'>
+          <div class='center-form__section'>
+            <input type='text' placeholder='channel name' class='center-form__input channel-form__name' />
+            <div class='center-form__checkbox'>
+              <label>Locked?</label>
+              <input type='checkbox' checked class='channel-form__locked' />
+            </div>
+          </div>
+          <input type='submit' value='Create Channel' class='center-form__submit' />
+        </form>
+      </div>
+    </li>
+  </ul>
+
+  <div class='pane-names top-menu top-menu--grey'>
+    <ul>
+      <li class='pane-names__item'>
+        Step 1
+      </li>
+
+      <li class='pane-names__item'>
+        Step 2
+      </li>
+
+      <li class='pane-names__bg'></li>
+    </ul>
+  </div>
+</template>

@@ -1,0 +1,11 @@
+<template name='userRoundedImage'>
+  {{#if pi}}
+    <div class="rounded-image">
+      <img src='{{imageUrl pi}}' />
+    </div>
+  {{else}}
+    <div class="rounded-image" style="background-color: {{chatColor}};">
+      <div>{{activeLetters username}}</div>
+    </div>
+  {{/if}}
+</template>

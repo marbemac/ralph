@@ -1,0 +1,53 @@
+@import "a_variables";
+
+.popup-notifications
+  position absolute
+  left 0
+  right 0
+  top 25%
+  z-index 6000
+  text-align center
+.popup-notification
+  -webkit-transition all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  -moz-transition all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  -o-transition all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  transition all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275)
+
+  -webkit-transform scale(0, 0)
+  transform scale(0,0)
+
+  display inline-block
+  opacity 0
+  background #999
+  position relative
+  color #FFF
+  margin 0 1.5rem
+  max-width 50rem
+  min-width 20rem
+  border-left 0.8rem solid rgba(255,255,255,0.5)
+  box-shadow 0 0 3px rgba(0,0,0,0.5)
+  cursor pointer
+  p
+    padding 0.7rem 3.5rem 0.7rem 1rem
+    text-align left
+    font-size 1.2rem
+    line-height 1.7rem
+    opacity 0.8
+  &.error
+    background #c0392b
+  &.info
+    background #3498db
+  &.success
+    background #27ae60
+.popup-notification__close
+  position absolute
+  top 50%
+  margin-top -1rem
+  font-size 2rem
+  right 1rem
+  cursor pointer
+  opacity 0.8
+.popup-notification--visible
+  -webkit-transform scale(1,1)
+  transform scale(1,1)
+  opacity 1

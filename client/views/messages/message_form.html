@@ -1,0 +1,15 @@
+<template name="messageForm">
+  <div class='bottom-bar'>
+    <form class="bottom-form message-form {{getImageClass}}">
+      {{#if canGetImage}}
+        <div class='message-form__get-image'>
+          <i class='fa fa-camera'></i>
+        </div>
+      {{/if}}
+      <div class='bottom-form__input-wrapper'>
+        <div contenteditable autocorrect="off" class='bottom-form__input'></div>
+        <div class='bottom-form__submit'><span>Send</span></div>
+      </div>
+    </form>
+  </div>
+</template>

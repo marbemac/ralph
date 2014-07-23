@@ -1,0 +1,85 @@
+<template name='channelForm'>
+  <div class='view__inner with-margin'>
+
+    <form class='channel-form center-form'>
+
+      {{#unless pendingChannel._id}}
+        <ul class='nested-list'>
+          <li class='nested-list__header'>Name<span>ie iOS Development, Halo 5, Dallas Cowboys, etc</span></li>
+          <li>
+            <input type='text' placeholder='' value='{{pendingChannel.name}}' class='center-form__input channel-form__name' />
+          </li>
+        </ul>
+      {{/unless}}
+
+      <ul class='nested-list nested-list--padding-top'>
+        <li class='nested-list__header nested-list__header'>Description</li>
+        <li>
+          <textarea placeholder='140 characters max' class='center-form__input channel-form__description'>{{pendingChannel.description}}</textarea>
+        </li>
+      </ul>
+
+      <ul class='nested-list nested-list--padding-top'>
+        <li class='nested-list__header nested-list__header'>
+          Theming
+          <span>Give it some character! BG = Background.</span>
+
+          <i class='fa fa-refresh refresh'></i>
+        </li>
+        <li>
+          <div class='channel-form__theme'>
+            <div class='channel-form__theme-option channel-form__theme-option--image' style="background-image: url('{{imageUrl pendingChannel.image ''}}');">
+              <div class='channel-form__theme-option__label'>Image</div>
+            </div>
+            <div class='channel-form__theme-option channel-form__theme-option--bgimage channel-form__theme-option--middle' style="background-image: url('{{imageUrl pendingChannel.bgImage ''}}');">
+              <div class='channel-form__theme-option__label'>BG Image</div>
+            </div>
+            <div class='channel-form__theme-option channel-form__theme-option--bgcolor' style="background-color: {{pendingChannel.bgColor}};">
+              <div class='channel-form__theme-option__label'>BG Color</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class='channel-form__bg-theme {{#if pendingChannel.bgImage}}visible{{/if}}'>
+            <div class='{{bgThemeClass "default"}}' data-type='default'>Default</div>
+            <div class='{{bgThemeClass "fill"}}' data-type='fill'>Fill</div>
+            <div class='{{bgThemeClass "repeat"}}' data-type='repeat'>Repeat</div>
+            <i class='fa fa-caret-up'></i>
+          </div>
+        </li>
+        <!-- <li class='nested-list__header nested-list__header'>Background Image Options</li> -->
+      </ul>
+
+      <ul class='nested-list nested-list--padding-top channel-list-preview'>
+        <li class='nested-list__header nested-list__header'>Preview</li>
+        {{> channelListItem pendingChannel}}
+      </ul>
+
+      <div class='center-form__submit channel-form__submit'>
+        <div>
+          {{#if pendingChannel._id}}
+            Save
+          {{else}}
+            Create
+          {{/if}}
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class='bottom-panel channel-form__image-selector'>
+    <div class='bottom-panel__header'>Choose an Image</div>
+    <input type='text' placeholder='URL to .jpg, .png, or .gif image' tabindex="-1" />
+    <div class='submit'>
+      <div>Use Image</div>
+    </div>
+  </div>
+
+  <div class='bottom-panel channel-form__bgimage-selector'>
+    <div class='bottom-panel__header'>Choose a Background Image</div>
+    <input type='text' placeholder='URL to .jpg, .png, or .gif image' tabindex="-1" />
+    <div class='submit'>
+      <div>Use Image</div>
+    </div>
+  </div>
+</template>

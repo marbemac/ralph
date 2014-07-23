@@ -1,0 +1,32 @@
+<template name='channelLocked'>
+  <div class='channel-locked'>
+
+    <div class="image-stack__icon channel-locked__icon">
+      <div class="pulse-ring"></div>
+      <span><i class='fa fa-lock'></i></span>
+      <div class="image-stack__icon-border"></div>
+    </div>
+
+    <div class='channel-locked__name'>
+      {{pluralize 'more person' unlocksNeeded 'more people'}} needed to unlock
+    </div>
+
+    <ul class='channel-locked__users'>
+      <li>
+        <div class='channel-locked__users__number {{lockedUserClass 0}}'>1</div>
+        <div class='channel-locked__users__name'>{{lockedUserOne}}</div>
+      </li>
+      <li>
+        <div class='channel-locked__users__number {{lockedUserClass 1}}'>2</div>
+        <div class='channel-locked__users__name'>{{lockedUserTwo}}</div>
+      </li>
+    </ul>
+
+    {{#if isMobile}}
+      <div class='channel-locked__invite'>
+        Invite Friends
+      </div>
+    {{/if}}
+
+  </div>
+</template>

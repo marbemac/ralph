@@ -1,0 +1,56 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "iron-router": {},
+      "npm": {},
+      "hammer": {},
+      "percolatestudio-migrations": {},
+      "stylus-latest": {},
+      "kadira": {},
+      "segment.io": {}
+    },
+    "packages": {
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
+      },
+      "npm": {
+        "git": "https://github.com/arunoda/meteor-npm.git",
+        "tag": "v0.2.6",
+        "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
+      },
+      "hammer": {
+        "git": "https://github.com/noorderstorm/meteor-hammer.git",
+        "tag": "v0.1.3",
+        "commit": "1d37707c251c04c7d9b6023ba959b23c1f257c44"
+      },
+      "percolatestudio-migrations": {
+        "git": "https://github.com/percolatestudio/meteor-migrations.git",
+        "tag": "v0.6.0",
+        "commit": "baa77d4c121f6f06b6aa142ee11f71ace8795f7f"
+      },
+      "stylus-latest": {
+        "git": "https://github.com/sbking/meteor-stylus-latest.git",
+        "tag": "v0.47.1",
+        "commit": "41bc3624bfbe806994571bff26bbed6dfb3e86d5"
+      },
+      "kadira": {
+        "git": "https://github.com/meteorhacks/kadira.git",
+        "tag": "v2.4.9",
+        "commit": "8bb902989917522822a0897117672ae858c23427"
+      },
+      "segment.io": {
+        "git": "https://github.com/percolatestudio/meteor-segment.io.git",
+        "tag": "v2.0.9",
+        "commit": "339e1477b5ce68dd7961fc54c0ce3a5204025b37"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
+      }
+    }
+  }
+}
