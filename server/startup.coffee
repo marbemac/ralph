@@ -1,5 +1,3 @@
-ralphFeedbackId = "542fd3a822d71fecf985b99a"
-
 Meteor.startup ->
 
   Migrations.migrateTo('latest')
@@ -31,48 +29,45 @@ Meteor.startup ->
   # settings to send down to the client
   __meteor_runtime_config__.IMAGE_ROOT_URL = process.env.IMAGE_ROOT_URL
 
+  # Seed all the geo data DEPRECATED
+  # fileNames = [
+  #   'ak','al','ar','az','ca','co','ct','dc','fl','ga','hi','ia','id','il','in','ks','ky',
+  #   'la','ma','md','me','mi','mn','mo','ms','mt','nc','ne','nj','nm','nv','ny','oh','or','pa','ri','tn',
+  #   'tx','ut','va','wa','wi'
+  # ]
 
-  # channel = Channels.findOne(ralphFeedbackId)
-  # unless channel
-  #   Meteor.call 'createChannel', '#RalphFeedback', 'topic', false, 'admin', null, null, null, ralphFeedbackId, null, true
+  # Fiber = Npm.require('fibers')
+  # Fiber(->
+  #   count = 0
+  #   fs = Meteor.require('fs')
+  #   for name in fileNames
+  #     fs.readFile "#{process.env.PWD}/server/geo_data/#{name}.json", 'utf8', (err,data) ->
+  #       if err
+  #         console.log err
+  #         return
 
+  #       entries = JSON.parse(data)
 
-  # Seed all the geo data
-  # if Channels.find().count() == 0
-  #   fileNames = [
-  #     'ak','al','ar','az','ca','co','ct','dc','fl','ga','hi','ia','id','il','in','ks','ky',
-  #     'la','ma','md','me','mi','mn','mo','ms','mt','nc','ne','nj','nm','nv','ny','oh','or','pa','ri','tn',
-  #     'tx','ut','va','wa','wi'
-  #   ]
+  #       for k,feature of entries['features']
+  #         channelData =
+  #           name: feature.properties.NAME
+  #           description: ''
 
-  #   Fiber = Npm.require('fibers')
-  #   Fiber(->
-  #     count = 0
-  #     fs = Meteor.require('fs')
-  #     for name in fileNames
-  #       fs.readFile "#{process.env.PWD}/server/geo_data/#{name}.json", 'utf8', (err,data) ->
-  #         if err
-  #           console.log err
-  #           return
+  #         location =
+  #           state: feature.properties.STATE
+  #           county: feature.properties.COUNTY
+  #           city: feature.properties.CITY
+  #           type: 'neighborhood'
 
-  #         entries = JSON.parse(data)
+  #         console.log "CREATING #{feature.properties.NAME}"
+  #         Fiber(->
+  #           try
+  #             Meteor.call 'createChannel', channelData, 'local', true, 'admin', location, feature.geometry.coordinates[0], null, null, null
+  #           catch error
+  #             console.log error
+  #             console.log "ERROR for #{feature.properties.NAME}"
+  #         ).run()
 
-  #         for k,feature of entries['features']
-  #           location =
-  #             state: feature.properties.STATE
-  #             county: feature.properties.COUNTY
-  #             city: feature.properties.CITY
-  #             type: 'neighborhood'
-
-  #           console.log "creating #{feature.properties.NAME}"
-  #           Fiber(->
-  #             try
-  #               Meteor.call 'createChannel', feature.properties.NAME, 'local', true, 'admin', location, feature.geometry.coordinates[0], null, null, null, false
-  #             catch error
-  #               console.log error
-  #               console.log "ERROR for #{feature.properties.NAME}"
-  #           ).run()
-
-  #       count += 1
-  #     console.log "inserted #{count} channels"
-  #   ).run()
+  #     count += 1
+  #   console.log "*** DONE: inserted #{count} local channels ***"
+  # ).run()
