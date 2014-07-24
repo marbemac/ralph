@@ -66,8 +66,8 @@ if Meteor.isServer
 
 
     postMediaCreateImage: (imageUrl, content, channelId) ->
-      user = Meteor.user()
-      throw new Meteor.Error(401, "Please log in.")  unless user
+      # user = Meteor.user()
+      # throw new Meteor.Error(401, "Please log in.")  unless user
 
       result = Async.runSync (done) ->
         cloudinary = Meteor.require('cloudinary')
@@ -85,7 +85,7 @@ if Meteor.isServer
           type: 'image'
           title: content
           channels: [channelId]
-          userId: user._id
+          # userId: user._id
           media:
             url: "/v#{result.version}/#{result.public_id}.#{result.format}"
             h: result.height

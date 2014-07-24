@@ -87,7 +87,7 @@
   right 0
   bottom 0
   overflow hidden
-  opacity 0.4
+  opacity 0.75
   border-radius 0.6rem
 .message__img--large
   @extend .contain-image
@@ -127,6 +127,7 @@
   padding 0.8rem 1rem
   position absolute
   right 0
+  text-shadow 0 0 3px #333
 .message--system
   text-align center
   .message__border
@@ -166,7 +167,7 @@
     opacity 1 !important
 .message--with-image
   cursor pointer
-  min-height 8rem
+  min-height 12rem
   min-width 20rem
   margin-top 1px
   border-bottom none
@@ -177,11 +178,13 @@
     position relative
     z-index 10
     color #FFF !important
+    text-shadow 0 0 3px #333
   .message__content
     p
       position relative
       z-index 10
       color #FFF !important
+      text-shadow 0 0 3px #333
 .message-container--show-actions
   .message__actions
     display block

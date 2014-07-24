@@ -64,7 +64,7 @@ Template.message.events
 Template.message.helpers
 
   hasImage: ->
-    true if @entities && _.where(@entities, {type: "image"}).length
+    true if @media && _.where(@media, {type: "image"}).length
 
   isMine: ->
     true if Meteor.userId() == @userId
@@ -80,25 +80,27 @@ Template.message.helpers
 
   contentWithEntities: ->
     @content = "<p>#{@content}</p>"
-    return @content if @loadedForUser
+    # return @content if @loadedForUser
 
-    if @entities && @entities.length
-      for entity in @entities
-        if entity.type == 'link'
-          @content = @content.replace(entity.oid, "<a href='#{entity.oid}' rel='nofollow' target='_blank'>#{entity.oid}</a>")
-        else if entity.type == 'image'
-          if entity.forClient #
+    if @media && @media.length
+      for item in @media
+        if item.type == 'link'
+          @content = @content.replace(item.oid, "<a href='#{item.oid}' rel='nofollow' target='_blank'>#{item.oid}</a>")
+        else if item.type == 'image'
+          if item.processing
+            console.log 'for client!'
             # mark we've parsed this for the current user and it should not be re-parsed, so we don't have to reload the image
             @loadedForUser = true
-            if entity.id
-              url = entity.id
+            if item.id
+              url = item.id
             else
-              url = entity.oid
-            if entity.toUpload
-              uploadImage(@_id, entity)
+              url = item.oid
+            if item.toUpload
+              uploadImage(@_id, item)
           else # it's been uploaded, we're good to go
-            url = Meteor.settings.public.IMAGE_ROOT_URL + "/w_500,h_500,c_limit,f_auto#{entity.id}"
-          @content = $.trim(@content.replace(entity.oid, ""))
+            url = Meteor.settings.public.IMAGE_ROOT_URL + "/w_500,h_500,c_limit,f_auto#{item.id}"
+
+          @content = $.trim(@content.replace(item.oid, ""))
           @content += "<div class='message__img' style='background-image: url(\"#{url}\")'></div>"
 
     @content

@@ -24,7 +24,7 @@
 # # _id - post_media id
 # # type - image or link
 # # oid - original id
-# # nid - new id, if applicable
+# # id - new id, if applicable
 # # w - width, if applicable
 # # h - height, if applicable
 
@@ -242,7 +242,7 @@ Meteor.methods
         if currentChannel && currentChannel.name
           message += " in \"#{currentChannel.name}\""
         message += ": #{newPost.content}"
-        message = message.substring(0, 300)
+        message = message.replace(/&nbsp;/g, ' ').substring(0, 300).trim()
 
         UA = Meteor.require('urban-airship')
         ua = new UA(Meteor.settings.UA_APP_KEY, Meteor.settings.UA_APP_SECRET, Meteor.settings.UA_APP_MASTER_SECRET)

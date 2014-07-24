@@ -12,7 +12,7 @@ Meteor.publish 'channelPosts', (channelId, channelSlug) ->
       sort: {created: -1}
       limit: 20
       fields: {
-        '_id','content','username','cc','pp','loc','created','system','private','userId','channel','pid','flagged','entities','admin','moderator'
+        '_id','content','username','cc','pp','loc','created','system','private','userId','channel','pid','flagged','media','admin','moderator'
       }
     }
   )
