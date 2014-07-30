@@ -26,4 +26,8 @@ Ralph is a chat app built with Meteor. I built this app at the end of 2013 to he
 ## iOS App
 
 Ralph can be run as an iOS app, and includes a number of features that take advantage of native
-hardware. Check out the complementary PhoneGap app at [https://github.com/marbemac/ralph-mobile](https://github.com/marbemac/ralph-mobile).
+hardware. Check out the PhoneGap app at [https://github.com/marbemac/ralph-mobile](https://github.com/marbemac/ralph-mobile).
+
+***
+
+Create an issue or hit me up on Twitter @marbemac if you have questions.
