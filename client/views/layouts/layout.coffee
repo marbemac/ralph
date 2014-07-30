@@ -1,8 +1,5 @@
 Template.layout.helpers
 
-  userMenuIsOnClass: (name) ->
-    'on' if Session.get('currentPage') == name
-
   offline: ->
     if Meteor.status().connecting || !Meteor.status().connected
       setTimeout ->

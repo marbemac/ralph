@@ -39,3 +39,6 @@ Handlebars.registerHelper 'imageUrl', (imagePath, optionString) ->
 
 Handlebars.registerHelper 'loggedIn', ->
   Meteor.userId()
+
+Handlebars.registerHelper 'userMenuIsOnClass', (name) ->
+  'on' if Session.get('currentPage') == name
