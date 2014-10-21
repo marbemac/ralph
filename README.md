@@ -4,7 +4,7 @@ Ralph is a chat app built with Meteor. I built this app at the end of 2013 to he
 
 ## Requirements
 
-- Meteor >= v0.8.2
+- Meteor >= v0.9.4
 
 ## Setup
 
