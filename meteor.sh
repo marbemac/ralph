@@ -4,7 +4,7 @@ APP_NAME=ralph
 
 case "$1" in
 run )
-mrt --settings config/settings.json
+meteor --settings config/settings.json
 ;;
 deploy )
 
