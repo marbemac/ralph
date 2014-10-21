@@ -43,7 +43,7 @@ if Meteor.isServer
 
         if embedlyData.images
           result = Async.runSync (done) ->
-            cloudinary = Meteor.require('cloudinary')
+            cloudinary = Meteor.npmRequire('cloudinary')
             cloudinary.config('cloud_name', Meteor.settings.CLOUDINARY_CLOUD_NAME)
             cloudinary.config('api_key', Meteor.settings.CLOUDINARY_API_KEY)
             cloudinary.config('api_secret', Meteor.settings.CLOUDINARY_API_SECRET)
@@ -70,7 +70,7 @@ if Meteor.isServer
       # throw new Meteor.Error(401, "Please log in.")  unless user
 
       result = Async.runSync (done) ->
-        cloudinary = Meteor.require('cloudinary')
+        cloudinary = Meteor.npmRequire('cloudinary')
         cloudinary.config('cloud_name', Meteor.settings.CLOUDINARY_CLOUD_NAME)
         cloudinary.config('api_key', Meteor.settings.CLOUDINARY_API_KEY)
         cloudinary.config('api_secret', Meteor.settings.CLOUDINARY_API_SECRET)

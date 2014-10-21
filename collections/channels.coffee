@@ -115,7 +115,7 @@ Meteor.methods
     if Meteor.isServer
       if channelData.image
         result = Async.runSync (done) ->
-          cloudinary = Meteor.require('cloudinary')
+          cloudinary = Meteor.npmRequire('cloudinary')
           cloudinary.config('cloud_name', Meteor.settings.CLOUDINARY_CLOUD_NAME)
           cloudinary.config('api_key', Meteor.settings.CLOUDINARY_API_KEY)
           cloudinary.config('api_secret', Meteor.settings.CLOUDINARY_API_SECRET)
@@ -127,7 +127,7 @@ Meteor.methods
           channel.image = "/v#{result.version}/#{result.public_id}.#{result.format}"
       if channelData.bgImage
         result = Async.runSync (done) ->
-          cloudinary = Meteor.require('cloudinary')
+          cloudinary = Meteor.npmRequire('cloudinary')
           cloudinary.config('cloud_name', Meteor.settings.CLOUDINARY_CLOUD_NAME)
           cloudinary.config('api_key', Meteor.settings.CLOUDINARY_API_KEY)
           cloudinary.config('api_secret', Meteor.settings.CLOUDINARY_API_SECRET)
@@ -198,7 +198,7 @@ Meteor.methods
     if Meteor.isServer
       if channelData.image != existingChannel.image
         result = Async.runSync (done) ->
-          cloudinary = Meteor.require('cloudinary')
+          cloudinary = Meteor.npmRequire('cloudinary')
           cloudinary.config('cloud_name', Meteor.settings.CLOUDINARY_CLOUD_NAME)
           cloudinary.config('api_key', Meteor.settings.CLOUDINARY_API_KEY)
           cloudinary.config('api_secret', Meteor.settings.CLOUDINARY_API_SECRET)
@@ -210,7 +210,7 @@ Meteor.methods
           channelUpdates.image = "/v#{result.version}/#{result.public_id}.#{result.format}"
       if channelData.bgImage != existingChannel.bgImage
         result = Async.runSync (done) ->
-          cloudinary = Meteor.require('cloudinary')
+          cloudinary = Meteor.npmRequire('cloudinary')
           cloudinary.config('cloud_name', Meteor.settings.CLOUDINARY_CLOUD_NAME)
           cloudinary.config('api_key', Meteor.settings.CLOUDINARY_API_KEY)
           cloudinary.config('api_secret', Meteor.settings.CLOUDINARY_API_SECRET)
@@ -445,7 +445,7 @@ if Meteor.isServer
 
       # check to see if we should unlock the channel
       if channel && channel.locked && usernames.length >= 2
-        Humanize = Meteor.require('humanize-plus')
+        Humanize = Meteor.npmRequire('humanize-plus')
         message = "#{channel.name} "
         if channel.parentName
           message += "in #{channel.parentName} "
@@ -476,7 +476,7 @@ if Meteor.isServer
     sendChannelInvitePushNotifications: (user, targetUser, channel) ->
       return unless targetUser.mobilePushId
 
-      UA = Meteor.require('urban-airship')
+      UA = Meteor.npmRequire('urban-airship')
       ua = new UA(Meteor.settings.UA_APP_KEY, Meteor.settings.UA_APP_SECRET, Meteor.settings.UA_APP_MASTER_SECRET)
       uaPayload =
         "device_tokens": [targetUser.mobilePushId]
@@ -493,8 +493,8 @@ if Meteor.isServer
 
 
     sendUnlockPushNotification: (user, channel) ->
-      Humanize = Meteor.require('humanize-plus')
-      UA = Meteor.require('urban-airship')
+      Humanize = Meteor.npmRequire('humanize-plus')
+      UA = Meteor.npmRequire('urban-airship')
       ua = new UA(Meteor.settings.UA_APP_KEY, Meteor.settings.UA_APP_SECRET, Meteor.settings.UA_APP_MASTER_SECRET)
 
       usernames = if channel.type == 'local' then channel.activeUsers else _.pluck(channel.userData, 'username')

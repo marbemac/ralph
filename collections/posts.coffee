@@ -102,9 +102,9 @@ Meteor.methods
 
     # clean content
     if Meteor.isServer
-      SanitizeHtml = Meteor.require('sanitize-html')
+      SanitizeHtml = Meteor.npmRequire('sanitize-html')
       content = SanitizeHtml(content, {allowedTags: [], allowedAttributes: {}})
-      Sanitizer = Meteor.require('sanitizer')
+      Sanitizer = Meteor.npmRequire('sanitizer')
       content = Sanitizer.sanitize(content)
     else
       tmpContent = document.createElement("DIV")
@@ -244,7 +244,7 @@ Meteor.methods
         message += ": #{newPost.content}"
         message = message.replace(/&nbsp;/g, ' ').substring(0, 300).trim()
 
-        UA = Meteor.require('urban-airship')
+        UA = Meteor.npmRequire('urban-airship')
         ua = new UA(Meteor.settings.UA_APP_KEY, Meteor.settings.UA_APP_SECRET, Meteor.settings.UA_APP_MASTER_SECRET)
 
         uaPayload =
