@@ -13,8 +13,9 @@ noorderstorm:hammer
 iron:router
 percolatestudio:percolatestudio-migrations
 meteorhacks:npm
-mrt:stylus-latest
 meteorhacks:kadira
 percolatestudio:segment.io
 
 npm-container
+mquandalle:stylus
+
